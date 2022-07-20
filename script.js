@@ -37,9 +37,15 @@ input.addEventListener('keydown', event => {
 		8: '\u0306' //same diacritic as 1
 	};
 	if (event.altKey && mappings[event.key]) {
-		console.log('add tone');
 		event.preventDefault();
 		input.setRangeText(mappings[event.key], input.selectionStart, input.selectionEnd);
 		return false;
+	}
+});
+document.getElementById('copy').addEventListener('click', event => {
+	if (!navigator.clipboard) {
+		document.execCommand('copy', input.value);
+	} else {
+		navigator.clipboard.writeText(input.value);
 	}
 });
