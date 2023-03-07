@@ -8,3 +8,6 @@ button#copy {
 textarea {
 	font-size: 25px;
 }
+body {
+	font-family: sans-serif;
+}
